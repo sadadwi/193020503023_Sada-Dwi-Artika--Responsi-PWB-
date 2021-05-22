@@ -10,13 +10,17 @@
     if(isset($_GET['page'])){
 
 
-        if ( pembeli($_GET) > 0 ) {
+        if ( deletePembeli($_GET) > 0 ) {
             echo "<script>
-                    alert('pembeli baru berhasil ditambahkan');
+                    alert('pembeli  berhasil dihapus');
+                    document.location.href = 'pembeli.php';
                  </script>";
      
         } else{
-                echo mysqli_error($db);
+            echo "<script>
+            alert('pembeli  gagal dihapus');
+            document.location.href = 'pembeli.php';
+         </script>";
         }
 
      

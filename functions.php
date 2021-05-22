@@ -22,16 +22,18 @@ function query($query){
 }
 
 
-function deleteAlat($id_alat){
+function deleteAlat($data){
 	global $db;
+	$id_alat=$data['id_alat'];
 	mysqli_query($db, "CALL Delete_Alat_Musik('$id_alat')");
 	
 	// cek apakah data berhasil dihapuskan atau tidak
 	return mysqli_affected_rows($db);	
 }
 
-function deletePembeli($id_pembeli){
+function deletePembeli($data){
 	global $db;
+	$id_pembeli=$data['id_pembeli'];
 	mysqli_query($db, "CALL Delete_Pembeli('$id_pembeli')");
 	
 	// cek apakah data berhasil dihapuskan atau tidak
@@ -42,10 +44,9 @@ function deletePembeli($id_pembeli){
 function deletePembayaran($data){
 	global $db;
 	$no_order = $data["no_order"];
-    $tanggal = $data["tanggal"];
-    $no = substr($no_order, 7, 2);
+   
 
-	mysqli_query($db, "CALL Delete_pembayaran('$no', '$tanggal')");
+	mysqli_query($db, "CALL Delete_pembayaran('$no_order')");
 	
 	// cek apakah data berhasil dihapuskan atau tidak
 	return mysqli_affected_rows($db);	

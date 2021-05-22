@@ -7,13 +7,17 @@
 
     if(isset($_GET['page'])){
 
-        if ( pembayaran($_GET) > 0 ) {
+        if ( deletePembayaran($_GET) > 0 ) {
             echo "<script>
-                    alert('pembayaran berhasil ditambahkan');
+                    alert('delete berhasil');
+                    document.location.href = 'pembayaran.php';
                  </script>";
      
         } else{
-                echo mysqli_error($db);
+            echo "<script>
+            alert('delete gagal');
+            document.location.href = 'pembayaran.php';
+         </script>";
         }
 
        deletePembayaran($_GET);

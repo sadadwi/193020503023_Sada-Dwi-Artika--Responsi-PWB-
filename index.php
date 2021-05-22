@@ -17,13 +17,17 @@ if( !isset($_SESSION["login"]) ) {
 
     if(isset($_GET['page'])){
 
-        if ( index($_GET) > 0 ) {
+        if ( deleteAlat($_GET) > 0 ) {
             echo "<script>
-                    alert('alat baru berhasil ditambahkan');
+                    alert('alat berhasil dihapus');
+                    document.location.href = 'index.php';
                  </script>";
      
         } else{
-                echo mysqli_error($db);
+            echo "<script>
+            alert('alat gagal dihapus');
+            document.location.href = 'index.php';
+         </script>";
         }
 
 
