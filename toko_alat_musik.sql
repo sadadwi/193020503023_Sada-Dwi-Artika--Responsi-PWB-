@@ -27,7 +27,7 @@ CREATE TABLE `alat_musik` (
   `harga` int(11) DEFAULT NULL,
   `stok` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_alat`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Data for the table `alat_musik` */
 
@@ -35,10 +35,10 @@ insert  into `alat_musik`(`id_alat`,`nama_alat`,`gambar`,`harga`,`stok`) values
 (1,'pianika','pianika.jpg',100000,7),
 (2,'gitar','gitar.jpg',750000,15),
 (3,'recorder_putih','recorder.jpg',35000,8),
-(5,'triangle','triangle.jpg',10000,2),
-(7,'recorder_pink','recorder2.jpg',50000,1),
-(8,'biola','biola.jpg',600000,3),
-(9,'ukulele','ukulele.jpg',100000,4);
+(10,'recorder_pink','recorder2.jpg',50000,7),
+(11,'biola','biola.jpg',150000,5),
+(12,'triangle','triangle.jpg',35000,10),
+(13,'ukulele','ukulele.jpg',80000,9);
 
 /*Table structure for table `pembayaran` */
 
@@ -62,13 +62,7 @@ insert  into `pembayaran`(`no_order`,`tanggal`,`id_pembeli`,`total_beli`,`bayar`
 (231,'2021-05-07',111,200000,200000,0),
 (232,'2021-05-08',112,750000,800000,50000),
 (243,'2021-05-08',113,35000,200000,165000),
-(244,'2021-05-08',114,30000,100000,70000),
-(246,'2021-05-08',116,50000,100000,50000),
-(247,'2021-05-09',117,1200000,1500000,300000),
-(248,'2021-05-09',118,100000,100000,0),
-(249,'2021-05-09',119,800000,800000,0),
-(250,'2021-05-14',121,100000,100000,0),
-(251,'2021-05-22',122,35000,50000,15000);
+(248,'2021-05-09',118,100000,100000,0);
 
 /*Table structure for table `pembeli` */
 
@@ -89,14 +83,9 @@ insert  into `pembeli`(`id_pembeli`,`id_alat`,`jumlah_beli`) values
 (111,1,2),
 (112,2,1),
 (113,3,1),
-(114,5,3),
-(116,7,1),
-(117,8,2),
 (118,1,1),
 (119,1,8),
-(120,2,1),
-(121,9,1),
-(122,3,1);
+(120,2,1);
 
 /*Table structure for table `users` */
 
@@ -298,7 +287,7 @@ DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_alat_musik`(nama_alat VARCHAR(255), gambar VARCHAR(255), harga INT, stok int)
 BEGIN
-		INSERT INTO alat_musik VALUES('', nama_alat, gambar, harga, stok);
+		INSERT INTO alat_musik (nama_alat, gambar, harga, stok) VALUES(nama_alat, gambar, harga, stok);
 	END */$$
 DELIMITER ;
 
